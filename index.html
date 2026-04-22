@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elephant Quest - Selección de Mundo</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            background: linear-gradient(180deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow: hidden;
+        }
+
+        h1 {
+            color: #f1c40f;
+            font-size: 3rem;
+            margin-bottom: 10px;
+            text-shadow: 3px 3px 0 #e67e22, 6px 6px 0 rgba(0,0,0,0.3);
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .subtitle {
+            color: #bdc3c7;
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+        }
+
+        .worlds-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 25px;
+            max-width: 900px;
+            width: 90%;
+            padding: 20px;
+        }
+
+        .world-card {
+            background: rgba(255,255,255,0.1);
+            border-radius: 20px;
+            padding: 25px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 3px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .world-card:hover {
+            transform: translateY(-10px) scale(1.05);
+            border-color: #f1c40f;
+            box-shadow: 0 15px 40px rgba(241, 196, 15, 0.3);
+        }
+
+        .world-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            opacity: 0.15;
+            z-index: 0;
+        }
+
+        .world-icon {
+            font-size: 4rem;
+            margin-bottom: 15px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .world-name {
+            color: white;
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin-bottom: 8px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .world-desc {
+            color: rgba(255,255,255,0.7);
+            font-size: 0.9rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .world-1::before { background: linear-gradient(135deg, #27ae60, #2ecc71); }
+        .world-2::before { background: linear-gradient(135deg, #f39c12, #e67e22); }
+        .world-3::before { background: linear-gradient(135deg, #3498db, #2980b9); }
+        .world-4::before { background: linear-gradient(135deg, #e74c3c, #c0392b); }
+        .world-5::before { background: linear-gradient(135deg, #9b59b6, #8e44ad); }
+
+        .locked {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .locked:hover {
+            transform: none;
+            border-color: transparent;
+            box-shadow: none;
+        }
+
+        .lock-icon {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 1.5rem;
+            z-index: 2;
+        }
+
+        .elephant-decoration {
+            position: fixed;
+            bottom: -20px;
+            font-size: 8rem;
+            opacity: 0.1;
+            animation: walk 20s linear infinite;
+        }
+
+        @keyframes walk {
+            from { left: -100px; }
+            to { left: 100%; }
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 6px;
+            background: rgba(0,0,0,0.3);
+            border-radius: 3px;
+            margin-top: 10px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: #f1c40f;
+            border-radius: 3px;
+            transition: width 0.5s ease;
+        }
+    </style>
+</head>
+<body>
+    <h1>🐘 ELEPHANT QUEST</h1>
+    <p class="subtitle">Selecciona un mundo para comenzar la aventura</p>
+
+    <div class="worlds-container">
+        <div class="world-card world-1" onclick="goToWorld(1)">
+            <span class="world-icon">🌿</span>
+            <div class="world-name">Pradera Verde</div>
+            <div class="world-desc">3 niveles • Fácil</div>
+            <div class="progress-bar"><div class="progress-fill" style="width: 0%" id="prog1"></div></div>
+        </div>
+
+        <div class="world-card world-2" onclick="goToWorld(2)">
+            <span class="world-icon">🏜️</span>
+            <div class="world-name">Desierto Dorado</div>
+            <div class="world-desc">3 niveles • Medio</div>
+            <div class="progress-bar"><div class="progress-fill" style="width: 0%" id="prog2"></div></div>
+        </div>
+
+        <div class="world-card world-3" onclick="goToWorld(3)">
+            <span class="world-icon">❄️</span>
+            <div class="world-name">Nieve Helada</div>
+            <div class="world-desc">3 niveles • Medio</div>
+            <div class="progress-bar"><div class="progress-fill" style="width: 0%" id="prog3"></div></div>
+        </div>
+
+        <div class="world-card world-4" onclick="goToWorld(4)">
+            <span class="world-icon">🌋</span>
+            <div class="world-name">Volcán Ardiente</div>
+            <div class="world-desc">3 niveles • Difícil</div>
+            <div class="progress-bar"><div class="progress-fill" style="width: 0%" id="prog4"></div></div>
+        </div>
+
+        <div class="world-card world-5" onclick="goToWorld(5)">
+            <span class="world-icon">🌌</span>
+            <div class="world-name">Espacio Estelar</div>
+            <div class="world-desc">3 niveles • Experto</div>
+            <div class="progress-bar"><div class="progress-fill" style="width: 0%" id="prog5"></div></div>
+        </div>
+    </div>
+
+    <div class="elephant-decoration">🐘</div>
+
+    <script>
+        // Cargar progreso guardado
+        function loadProgress() {
+            for (let i = 1; i <= 5; i++) {
+                const completed = localStorage.getItem('world' + i + '_completed') || '0';
+                const prog = document.getElementById('prog' + i);
+                if (prog) prog.style.width = (completed / 3 * 100) + '%';
+            }
+        }
+
+        function goToWorld(worldNum) {
+            window.location.href = 'mundo' + worldNum + '.html';
+        }
+
+        loadProgress();
+    </script>
+</body>
+</html>
