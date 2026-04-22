@@ -1,18 +1,18 @@
-&lt;p align="center"&gt;
+<p align="center">
   🐘
-&lt;/p&gt;
-&lt;h1 align="center"&gt;Elephant Quest&lt;/h1&gt;
-&lt;p align="center"&gt;
-  &lt;b&gt;Un juego de plataformas 2D protagonizado por un elefante a dos patas&lt;/b&gt;&lt;br&gt;
+</p>
+<h1 align="center">Elephant Quest</h1>
+<p align="center">
+  <b>Un juego de plataformas 2D protagonizado por un elefante a dos patas</b><br>
   5 mundos · 3 niveles por mundo · 100% HTML5 · Sin instalación
-&lt;/p&gt;
+</p>
 
-&lt;p align="center"&gt;
-  &lt;img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" alt="HTML5"&gt;
-  &lt;img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" alt="JavaScript"&gt;
-  &lt;img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white" alt="CSS3"&gt;
-  &lt;img src="https://img.shields.io/badge/Canvas-API-orange?style=for-the-badge" alt="Canvas API"&gt;
-&lt;/p&gt;
+<p align="center">
+  <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" alt="HTML5">
+  <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" alt="JavaScript">
+  <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white" alt="CSS3">
+  <img src="https://img.shields.io/badge/Canvas-API-orange?style=for-the-badge" alt="Canvas API">
+</p>
 
 ---
 
@@ -22,7 +22,7 @@
 
 Tu misión es guiarlo a través de **5 mundos temáticos**, cada uno con **3 niveles**, físicas distintas, enemigos por derrotar y coleccionables que suman puntos. Todo dibujado con código, sin imágenes externas, y listo para jugar en cualquier navegador.
 
-&gt; ⚡ **Zero dependencias. Zero instalación. Solo abre y juega.**
+> ⚡ **Zero dependencias. Zero instalación. Solo abre y juega.**
 
 ---
 
@@ -66,3 +66,54 @@ Si publicas este repo con GitHub Pages, podrás jugar directamente desde cualqui
 ---
 
 ## 📁 Estructura del proyecto
+
+
+Cada archivo `.html` es **completamente autónomo**: contiene el HTML, CSS y JavaScript necesarios para funcionar. No requiere conexión a internet ni bibliotecas externas.
+
+---
+
+## ✨ Características
+
+- 🎨 **Gráficos vectoriales 100% código** — sin imágenes externas, carga ultrarrápida.
+- 🎵 **Sonidos generados proceduralmente** — saltos, monedas, daño y victoria.
+- 📱 **Controles táctiles automáticos** — se detectan dispositivos móviles y aparecen botones en pantalla.
+- 💾 **Progreso guardado** — usa `localStorage` para recordar qué niveles has completado.
+- 🎯 **Físicas distintas por mundo** — cada entorno se siente diferente.
+- 🖥️ **Cámara dinámica** — sigue al personaje con suavidad.
+- ✨ **Sistema de partículas** — efectos visuales al saltar, recolectar y derrotar enemigos.
+
+---
+
+## 🛠️ Tecnologías utilizadas
+
+- **HTML5 Canvas** — renderizado de gráficos 2D.
+- **JavaScript (ES6)** — lógica del juego, físicas, colisiones y estados.
+- **CSS3** — interfaz de usuario, controles táctiles y diseño responsive.
+- **Web Audio API** — generación de sonidos en tiempo real.
+
+---
+
+## 📸 Capturas de pantalla
+
+> *(Próximamente: añade aquí tus propias capturas de pantalla del juego para que luzca aún mejor en GitHub)*
+
+---
+
+## 📝 Notas para desarrolladores
+
+- El juego está diseñado para ser lo más **sencillo y portable** posible: un solo archivo HTML por mundo.
+- Las físicas (gravedad, fricción, velocidad) se definen como constantes al inicio de cada script, facilitando el ajuste de dificultad.
+- Los niveles se almacenan como objetos JSON dentro de cada archivo, por lo que añadir nuevas plataformas, monedas o enemigos es tan fácil como editar un array.
+
+---
+
+## 📄 Licencia
+
+Este proyecto es de código abierto. Siéntete libre de modificarlo, ampliarlo o usarlo como base para tu propio juego.
+
+---
+
+<p align="center">
+  <b>¡Gracias por jugar Elephant Quest!</b> 🐘✨<br>
+  Si te gusta el proyecto, no olvides dejar una ⭐ en el repositorio.
+</p>
