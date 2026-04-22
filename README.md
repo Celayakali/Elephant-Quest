@@ -93,12 +93,6 @@ Cada archivo `.html` es **completamente autónomo**: contiene el HTML, CSS y Jav
 
 ---
 
-## 📸 Capturas de pantalla
-
-> *(Próximamente: añade aquí tus propias capturas de pantalla del juego para que luzca aún mejor en GitHub)*
-
----
-
 ## 📝 Notas para desarrolladores
 
 - El juego está diseñado para ser lo más **sencillo y portable** posible: un solo archivo HTML por mundo.
